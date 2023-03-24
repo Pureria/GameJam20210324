@@ -8,11 +8,16 @@ public class IdleState : AliveState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
 
-        if(player.gameStart)
+        if(Player.gameStart)
         {
             stateMachine.ChangeState(player.moveState);
         }
