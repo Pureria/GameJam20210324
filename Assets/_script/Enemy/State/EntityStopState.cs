@@ -39,7 +39,7 @@ public class EntityStopState : State
         {
             stateMachine.ChangeState(enemy.moveState);
         }
-        else if (Player.dead)
+        else if (Player.dead || Player.goal)
         {
             stateMachine.ChangeState(enemy.idleState);
         }

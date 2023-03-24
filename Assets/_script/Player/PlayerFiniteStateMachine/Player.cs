@@ -36,11 +36,14 @@ public class Player : MonoBehaviour
     private Vector2 workspace;
 
     public static bool dead;
+    public static bool goal;
     public static bool gameStart;
     public static bool range { get; private set; }
     public static bool turn;
 
     public SpriteRenderer playerMask;
+
+    [SerializeField] private Transform goalPos;
     #endregion
 
     #region Unity Callback Function
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
         stateMachine = new PlayerStateMachine();
 
         alive = true;
+        goal = false;
         idleState = new IdleState(this, stateMachine, playerData, "idle");
         moveState = new MoveState(this, stateMachine, playerData, "move");
         turnState = new TurnState(this, stateMachine, playerData, "turn");
@@ -105,6 +109,15 @@ public class Player : MonoBehaviour
         {
             heartAS.pitch = playerData.maxRange;
             range = false;
+        }
+
+        if(transform.position.x > goalPos.position.x)
+        {
+            goal = true;
+            stateMachine.ChangeState(idleState);
+            heartAS.Stop();
+            playerMask.color = new Color(0, 0, 0, 0);
+            Debug.Log("ÉSÅ[ÉãÅIÅI");
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

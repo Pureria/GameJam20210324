@@ -17,7 +17,9 @@ public class IdleState : AliveState
     {
         base.LogicUpdate();
 
-        if(Player.gameStart)
+        Movement?.SetVelocityZero();
+
+        if(Player.gameStart && !Player.goal)
         {
             stateMachine.ChangeState(player.moveState);
         }
