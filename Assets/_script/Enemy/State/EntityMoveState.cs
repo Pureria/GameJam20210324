@@ -22,7 +22,7 @@ public class EntityMoveState : State
         {
             stateMachine.ChangeState(enemy.stopState);
         }
-        else if(Player.dead)
+        else if(Player.dead || Player.goal)
         {
             stateMachine.ChangeState(enemy.idleState);
         }

@@ -19,6 +19,13 @@ public class Heart : MonoBehaviour
 
     private void Update()
     {
+        if(Player.goal)
+        {
+            Anim.SetBool(nowTrueAnimation, false);
+            nowTrueAnimation = "none";
+            Anim.SetBool(nowTrueAnimation, true);
+            return;
+        }
 
         if (player.CollisionSenses.cliticalRange)
         {

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EntityIdleState : State
 {
+    private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    private Movement movement;
+
     public EntityIdleState(Enemy enemy,FiniteStateMachine stateMachine,EntityData entityData,string animBoolName):base(enemy,stateMachine,entityData,animBoolName)
     {
     }
@@ -17,7 +20,9 @@ public class EntityIdleState : State
     {
         base.LogicUpdate();
 
-        if (Player.gameStart && !Player.dead)
+        Movement?.SetVelocityZero();
+
+        if (Player.gameStart && !Player.dead && !Player.goal)
         {
             stateMachine.ChangeState(enemy.moveState);
         }
