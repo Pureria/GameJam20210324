@@ -18,6 +18,8 @@ public class AliveState : PlayerState
     public override void DoCheck()
     {
         base.DoCheck();
+
+        alive = player.alive;
     }
 
     public override void Enter()
@@ -46,7 +48,7 @@ public class AliveState : PlayerState
         }
         else if(turnInput) 
         {
-            //TODO::AliveState::振り向きステータスに移行
+            stateMachine.ChangeState(player.turnState);
         }
     }
 

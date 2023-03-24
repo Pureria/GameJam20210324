@@ -14,10 +14,5 @@ public class MoveState : AliveState
 
         Movement?.CheckIfSouleFlip(1);
         Movement?.SetVelocityX(playerData.movementVelocity);
-
-        if(turnInput)
-        {
-            //TODO::MoveState::振り向きステータスに遷移
-        }
     }
 }
