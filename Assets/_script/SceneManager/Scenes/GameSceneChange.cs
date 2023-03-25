@@ -17,6 +17,5 @@ public class GameSceneChange : SceneChange
             sceneName = "GameClearScene";
             ClickSceneChange();
         }
-            
     }
 }
