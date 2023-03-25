@@ -20,15 +20,11 @@ public class GameBGM : MonoBehaviour
 
     void Update()
     {
+        /*
         if (gameManager.half && !bgm2)
         {
             startTime = Time.time;
             bgm2 = true;
-
-            /*
-            audioSource.clip = newClip;
-            audioSource.Play();
-            */
         }
         else if(gameManager.half && audioSource.clip != newClip)
         {
@@ -46,6 +42,7 @@ public class GameBGM : MonoBehaviour
         {
             audioSource.volume = Animation(startTime, startTime + fadeTime, 0.0f, 0.2f, Time.time);
         }
+        */
     }
 
     float Animation(float startTime, float endTime, float startKey, float endKey, float time)
