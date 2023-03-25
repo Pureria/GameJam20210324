@@ -119,6 +119,12 @@ public class Player : MonoBehaviour
             playerMask.color = new Color(0, 0, 0, 0);
             Debug.Log("ÉSÅ[ÉãÅIÅI");
         }
+
+        if (dead && stateMachine.CurrentState != deadState)
+        {
+            stateMachine.ChangeState(deadState);
+            heartAS.Stop();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -126,6 +132,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.layer == playerData.whatIsEnemyNo)
         {
             stateMachine.ChangeState(deadState);
+            heartAS.Stop();
         }
     }
     #endregion
