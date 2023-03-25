@@ -2256,6 +2256,10 @@ PrefabInstance:
       propertyPath: goalPos
       value: 
       objectReference: {fileID: 318021486}
+    - target: {fileID: 8297925168336252014, guid: 5feabf92672aaec4d80fbfb5c7362e34, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5feabf92672aaec4d80fbfb5c7362e34, type: 3}
 --- !u!1 &1723085782
@@ -2483,6 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17e4eab10d69fe4985081c6d0e43e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newClip: {fileID: 8300000, guid: 9c825fcbc8a61af409123ed4db31d4f7, type: 3}
 --- !u!1 &1745137962
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class GameBGM : MonoBehaviour
 {
+    public AudioClip newClip;
 
-    private AudioSource bgm;
-    private float volume;
-    // Start is called before the first frame update
+    private AudioSource audioSource;
+    private bool bgm2;
+
     void Start()
     {
-        bgm = GetComponent<AudioSource>();
-        volume = bgm.volume;
+        audioSource = GetComponent<AudioSource>();
+        bgm2 = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Player.range)
+        if (gameManager.half && !bgm2)
         {
-            bgm.volume = volume * 0.5f;
-        }
-        else
-        {
-            bgm.volume = volume;
+            bgm2 = true;
+            audioSource.clip = newClip;
+            audioSource.Play();
         }
     }
 }
