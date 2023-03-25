@@ -1,17 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeInOut : MonoBehaviour
+public class fadeinOut : MonoBehaviour
 {
-    [SerializeField] private float fadeTime;
-    private float nowTime;
+
+    public static bool fadeIn;
+    public static bool fadeOut;
+    public static bool isEndFadeOut;
+    private bool checkStartTime;
+    [SerializeField] private Image image;
     private float startTime;
-    private Image image;
-    private bool fadeIn;
-    private bool fadeOut;
+    [SerializeField] private float fadeTime = 1.0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        fadeIn = true;
+        fadeOut = false;
+        startTime = 0;
+        image.color = new Color(0, 0, 0, 1);
+        checkStartTime = false;
+        isEndFadeOut = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(fadeIn)
+        {
+            if (!checkStartTime)
+            {
+                startTime = Time.time;
+                checkStartTime = true;
+            }
+            float alpha = Animation(startTime, startTime + fadeTime, 1.0f, 0.0f, Time.time);
+            image.color = new Color(0, 0, 0, alpha);
+
+            if (image.color.a <= 0)
+            {
+                fadeIn = false;
+                checkStartTime = false;
+            }
+        }
+
+        if(fadeOut)
+        {
+            if(!checkStartTime)
+            {
+                startTime = Time.time;
+                checkStartTime = true;
+            }
+
+            float alpha = Animation(startTime, startTime + fadeTime, 0.0f, 1.0f, Time.time);
+            image.color = new Color(0, 0, 0, alpha);
+
+            if(image.color.a >= 1)
+            {
+                fadeOut = false;
+                checkStartTime = false;
+                isEndFadeOut = true;
+            }
+        }
+
+
+    }
 
     float Animation(float startTime, float endTime, float startKey, float endKey, float time)
     {
@@ -27,47 +80,5 @@ public class FadeInOut : MonoBehaviour
         return startKey + animationValue * t;
     }
 
-    private void Start()
-    {
-        image = GetComponent<Image>();
-        fadeIn = true;
-        fadeOut = false;
-
-        image.color = new Color(0,0,0,255);
-    }
-
-    private void Update()
-    {
-        nowTime = Time.time;
-        if(fadeIn)
-        {
-            if (image.color.a == 255)
-                startTime = Time.time;
-
-            float alpha = Animation(startTime, startTime + fadeTime, 254, 0, nowTime);
-            Debug.Log(alpha);
-            Color color = new Color(0, 0, 0, alpha);
-            gameObject.GetComponent<Image>().color = color;
-
-            if (color.a == 0)
-                fadeIn = false;
-        }
-
-        if(fadeOut)
-        {
-            if (image.color.a <= 0)
-                startTime = Time.time;
-
-            Color color = new Color(0, 0, 0, Animation(startTime, startTime + fadeTime, 0, 255, nowTime));
-            image.color = color;
-
-            if (color.a >= 255)
-                fadeOut = false;
-        }
-    }
-
-    public void StartFadeIn() => fadeIn = true;
-    public void StartFadeOut() => fadeOut = true;
-    public bool GetFadeIn() { return fadeIn; }
-    public bool GetFadeOut() { return fadeOut; }
+    public void startFadeOut() => fadeOut = true;
 }
