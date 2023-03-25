@@ -6,16 +6,20 @@ public class GameSceneChange : SceneChange
 {
     private void Update()
     {
-        if(Player.dead)
+        if(!fadeinOut.fadeOut)
         {
-            sceneName = "GameOverScene";
-            ClickSceneChange();
-        }
-        
-        if(Player.goal)
-        {
-            sceneName = "GameClearScene";
-            ClickSceneChange();
-        }
+            fadeinOut.isEndFadeOut = false;
+            if (Player.dead)
+            {
+                sceneName = "GameOverScene";
+                ClickSceneChange();
+            }
+
+            if (Player.goal)
+            {
+                sceneName = "GameClearScene";
+                ClickSceneChange();
+            }
+        }        
     }
 }
