@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class GameSceneChange : SceneChange
 {
-    public void GameNextSceneChange()
+    private void Update()
     {
-        base.ClickSceneChange();
+        if(Player.dead)
+        {
+            sceneName = "GameOverScene";
+            ClickSceneChange();
+        }
+        
+        if(Player.goal)
+        {
+            sceneName = "GameClearScene";
+            ClickSceneChange();
+        }
     }
 }
