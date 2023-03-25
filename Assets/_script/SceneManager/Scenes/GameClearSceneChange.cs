@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameClearSceneChange : SceneChange
 {
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private new AudioSource audio;
     bool flg;
 
     private void Start()
