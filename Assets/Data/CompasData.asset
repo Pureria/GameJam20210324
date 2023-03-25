@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: 6.87
   endPos: 219.95
-  rightPos: 500
-  leftPos: 30
+  rightPos: 168
+  leftPos: -179
