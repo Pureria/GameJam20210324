@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: TitleScene
+  audio: {fileID: 309998789}
 --- !u!1 &851166258
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: GameScene
+  audio: {fileID: 309998789}
 --- !u!1 &994979951
 GameObject:
   m_ObjectHideFlags: 0
