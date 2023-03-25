@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b26f9d29d12f064eb89beda9af3dc0b, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: 
-  movementVelocity: 11
+  movementVelocity: 3
   angle: {x: 1, y: 2}
   criticalMovementVelocity: 21
   slowMovementVelocity: 1
