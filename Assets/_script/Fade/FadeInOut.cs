@@ -27,7 +27,7 @@ public class fadeinOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fadeIn)
+        if (fadeIn)
         {
             if (!checkStartTime)
             {
@@ -44,9 +44,9 @@ public class fadeinOut : MonoBehaviour
             }
         }
 
-        if(fadeOut)
+        if (fadeOut)
         {
-            if(!checkStartTime)
+            if (!checkStartTime)
             {
                 startTime = Time.time;
                 checkStartTime = true;
@@ -55,7 +55,7 @@ public class fadeinOut : MonoBehaviour
             float alpha = Animation(startTime, startTime + fadeTime, 0.0f, 1.0f, Time.time);
             image.color = new Color(0, 0, 0, alpha);
 
-            if(image.color.a >= 1)
+            if (image.color.a >= 1)
             {
                 fadeOut = false;
                 checkStartTime = false;
