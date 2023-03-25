@@ -22,6 +22,9 @@ public class Compas : MonoBehaviour
     {
         nowLocation = playerPos.position.x;
         float parce = nowLocation / (compasData.endPos - compasData.startPos);
+
+        if (parce >= 0.5f)
+            gameManager.half = true;
         rectTransform.anchoredPosition = new Vector2((compasData.rightPos - compasData.leftPos) * parce + compasData.leftPos,rectTransform.anchoredPosition.y);
     }
 }
