@@ -113,6 +113,7 @@ public class Player : MonoBehaviour
 
         if(transform.position.x > goalPos.position.x)
         {
+            gameManager.half = false;
             goal = true;
             stateMachine.ChangeState(idleState);
             heartAS.Stop();
@@ -122,6 +123,7 @@ public class Player : MonoBehaviour
 
         if (dead && stateMachine.CurrentState != deadState)
         {
+            gameManager.half = false;
             stateMachine.ChangeState(deadState);
             heartAS.Stop();
         }
@@ -131,6 +133,7 @@ public class Player : MonoBehaviour
         
         if(collision.gameObject.layer == playerData.whatIsEnemyNo)
         {
+            gameManager.half = false;
             stateMachine.ChangeState(deadState);
             heartAS.Stop();
         }
