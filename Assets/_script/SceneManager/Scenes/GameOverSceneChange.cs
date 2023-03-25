@@ -6,6 +6,9 @@ public class GameOverSceneChange : SceneChange
 {
     public void GameOverNextSceneChange()
     {
-        base.ClickSceneChange();
+        if (SceneEnd.isEnd)
+        {
+            base.ClickSceneChange();
+        }
     }
 }
