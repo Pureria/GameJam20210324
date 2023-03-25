@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameOverSceneChange : SceneChange
 {
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private new AudioSource audio;
     bool flg;
     private void Start()
     {
