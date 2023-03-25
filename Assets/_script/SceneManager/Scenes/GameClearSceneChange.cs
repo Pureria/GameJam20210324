@@ -6,6 +6,9 @@ public class GameClearSceneChange : SceneChange
 {
     public void GameClearNextSceneChange()
     {
-        base.ClickSceneChange();
+        if (SceneEnd.isEnd)
+        {
+            base.ClickSceneChange();
+        }
     }
 }

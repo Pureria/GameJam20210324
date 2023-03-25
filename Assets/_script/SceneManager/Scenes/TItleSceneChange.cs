@@ -6,6 +6,9 @@ public class TItleSceneChange : SceneChange
 {
     public void TitleNextSceneChange()
     {
-        base.ClickSceneChange();
+        if (SceneEnd.isEnd)
+        {
+            base.ClickSceneChange();
+        }
     }
 }
